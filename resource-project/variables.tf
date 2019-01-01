@@ -28,31 +28,8 @@ variable network_name {
   description = "The VPC network to host the resources in"
 }
 
-variable ip_cidr_range {
-  description = "Set a custom ip cidr range"
-}
-
-variable subnet1_ip_cidr_range {
-  description = "The secondary ip range to use for pods"
-}
-
-variable subnet2_ip_cidr_range {
-  description = "The secondary ip range to use for services"
-}
-
-variable private_ip_google_access {
-  description = "Enable GCP services private IP access"
-  default     = true
-}
-
-variable auto_create_subnetworks {
-  description = "Disable auto-creation of subnetworks, allow creation of custom subnetworks"
-  default     = false
-}
-
-variable additional_zones {
-  type        = "list"
-  description = "Set some additional zones for high availability"
+variable subnetwork {
+  description = "The VPC network > subnetwork to host the resources in"
 }
 
 variable preemptible {

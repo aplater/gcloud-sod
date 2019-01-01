@@ -5,7 +5,7 @@ resource "google_compute_instance" "bastion" {
   zone         = "${var.zone}"
 
   service_account {
-    email  = "${google_service_account.bastion-svc-account.email}"
+    email  = "bastion-svc@acme-corp-admin.iam.gserviceaccount.com" # "${google_service_account.bastion-svc-account.email}"
     scopes = "${var.bastion_oath_scopes}"
   }
 
@@ -20,8 +20,8 @@ resource "google_compute_instance" "bastion" {
 
   # specify the dedicated subnet for our inside interface:
   network_interface {
-    subnetwork = "${google_compute_subnetwork.acme-labs.name}"
-
+    subnetwork_project = "${var.admin_project}"
+    subnetwork = "${var.subnetwork}"
     access_config {
       # leaving this empty assigns: ephemeral public ipv4 address
     }
