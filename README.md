@@ -9,6 +9,9 @@
 **Terraform Projects**    
 **-Host project** [admin-project](./host-project/.) - Contains our IAM (Service Account), Firewall and other security sensitive resources     
 **-Service project** [resource-project](./service-project/.) - Contains our project level resources - (VMs, Containers, DB, Storage, Functions, etc..)
+
+**Packer Project**  
+**-packer builder** [packer-builder](./packer/.) - Contains a packer script and resources to build a custom hardened compute instance image. This enables us to include SSH on private subnetworks + include our own custom agents, etc.
     
 ## Deployment    
 
