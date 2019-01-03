@@ -2,7 +2,7 @@
 
 **What is this?**    
 - This is a security best practices demonstration.   
-- This project demontsrates IAM and Security Sensitive resource Separation of Duties    
+- This project demontsrates how to segrate network configuration from application resource administration.   
 [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc)    
 [Provision Shared VPC](https://cloud.google.com/vpc/docs/provisioning-shared-vpc)    
 
