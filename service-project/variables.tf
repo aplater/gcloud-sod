@@ -9,7 +9,7 @@ variable admin_project {
 }
 
 variable "host_network" {
-  description = "Network to host our resources" 
+  description = "Network to host our resources"
 }
 
 variable name {

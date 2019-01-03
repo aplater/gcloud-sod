@@ -3,10 +3,12 @@
 **What is this?**    
 - This is a security best practices demonstration.   
 - This project demontsrates IAM and Security Sensitive resource Separation of Duties    
+[Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc)    
+[Provision Shared VPC](https://cloud.google.com/vpc/docs/provisioning-shared-vpc)    
 
 **Terraform Projects**    
-**-Admin project** [admin-project](./admin-project/.) - Contains our IAM (Service Account), Firewall and other security sensitive resources     
-**-Resource project** [resource-project](./resource-project/.) - Contains our project level resources - (VMs, Containers, DB, Storage, Functions, etc..)
+**-Host project** [admin-project](./host-project/.) - Contains our IAM (Service Account), Firewall and other security sensitive resources     
+**-Service project** [resource-project](./service-project/.) - Contains our project level resources - (VMs, Containers, DB, Storage, Functions, etc..)
     
 ## Deployment    
 

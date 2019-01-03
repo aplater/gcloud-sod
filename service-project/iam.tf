@@ -17,14 +17,16 @@ resource "google_project_iam_member" "bastion-svc-account-member" {
   member  = "serviceAccount:${google_service_account.bastion-svc-account.email}"
 }
 
-resource "google_service_account" "generic-vm-svc-account" {
-  account_id   = "${var.generic_vm_svc_account}"
-  display_name = "${var.generic_vm_svc_account}"
-}
+# resource "google_service_account" "generic-vm-svc-account" {
+#   account_id   = "${var.generic_vm_svc_account}"
+#   display_name = "${var.generic_vm_svc_account}"
+# }
 
-# apply cluster admin policy to bastion service account
-resource "google_project_iam_member" "generic-vm-svc-account-member" {
-  project = "${var.project}"
-  role    = "${var.generic_vm_svc_account_role}"
-  member  = "serviceAccount:${google_service_account.generic-vm-svc-account.email}"
-}
+
+# # apply cluster admin policy to generic VM service account
+# resource "google_project_iam_member" "generic-vm-svc-account-member" {
+#   project = "${var.project}"
+#   role    = "${var.generic_vm_svc_account_role}"
+#   member  = "serviceAccount:${google_service_account.generic-vm-svc-account.email}"
+# }
+
