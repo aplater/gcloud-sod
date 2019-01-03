@@ -5,7 +5,7 @@ resource "google_compute_instance" "bastion" {
   zone         = "${var.zone}"
 
   service_account {
-    email  = "${google_service_account.bastion-svc-account.email}"
+    email  = "${google_service_account.bastion_svc_account.email}"
     scopes = "${var.bastion_oath_scopes}"
   }
 

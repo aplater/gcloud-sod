@@ -19,6 +19,7 @@ zone="us-west2-a"
 # bastion host properties
 bastion_image="projects/cis-public/global/images/cis-ubuntu-linux-1804-level-1-v1-0-0-0" # CIS hardened image
 bastion_svc_account="bastion-svc"
+bastion_svc_account_roles=["roles/compute.osLogin"]
 
 # generic host properties
 generic_vm_svc_account="generic-vm-svc"
