@@ -22,7 +22,10 @@ resource "google_compute_instance" "bastion" {
   network_interface {
     subnetwork_project = "${var.admin_project}"
     subnetwork         = "${var.subnetwork}"
-
+    alias_ip_range {
+      ip_cidr_range="10.40.0.5"
+      subnetwork_range_name = "acme-services-net-subnet1"
+    }
     access_config {
       # leaving this empty assigns: ephemeral public ipv4 address
     }

@@ -16,7 +16,7 @@ resource "google_compute_firewall" "bastion-ssh" {
 resource "google_compute_firewall" "internal_ipc_firewall" {
   name                    = "internal-ipc-firewall"
   network                 = "${google_compute_subnetwork.acme-labs.name}"
-  source_ranges           = ["${var.subnet1_ip_cidr_range}", "${var.subnet2_ip_cidr_range}"]
+  source_ranges           = ["${var.ip_cidr_range}", "${var.subnet1_ip_cidr_range}", "${var.subnet2_ip_cidr_range}"]
   target_service_accounts = ["bastion-svc@acme-inc-service.iam.gserviceaccount.com"]
 
   allow {
