@@ -75,11 +75,6 @@ variable bastion_svc_account {
   description = "Set a custom service account for the bastion compute instance"
 }
 
-# variable bastion_svc_account_role {
-#   description = "Set appropriate role bindings for bastion instance service account"
-#   default     = "roles/container.admin"
-# }
-
 variable "bastion_svc_account_roles" {
   description = "list of IAM roles for bastion instance service account"
   type        = "list"
@@ -91,6 +86,19 @@ variable bastion_oath_scopes {
   default = [
     "https://www.googleapis.com/auth/cloud-platform",
   ]
+}
+
+variable "generic_vm_svc_account" {
+  description = "Set a custom service account for the generic compute instance"
+}
+
+variable "generic_vm_svc_account_roles" {
+  description = "list of IAM roles for worker node service account"
+  type        = "list"
+}
+
+variable "public_key" {
+  description = "Include an SSH public key in instance metadata"
 }
 
 variable ssh_firewall_rule_name {

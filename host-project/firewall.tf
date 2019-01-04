@@ -33,3 +33,24 @@ resource "google_compute_firewall" "internal_ipc_firewall" {
     ports    = ["0-65535"]
   }
 }
+
+resource "google_compute_firewall" "internal_ipc_firewall2" {
+  name                    = "internal-ipc-firewall2"
+  network                 = "${google_compute_subnetwork.acme-labs.name}"
+  source_ranges           = ["${var.ip_cidr_range}", "${var.subnet1_ip_cidr_range}", "${var.subnet2_ip_cidr_range}"]
+  target_service_accounts = ["generic-vm-svc@acme-inc-service.iam.gserviceaccount.com"]
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["0-65535"]
+  }
+
+  allow {
+    protocol = "udp"
+    ports    = ["0-65535"]
+  }
+}

@@ -1,4 +1,11 @@
 # create a bastion host VM to access our Private resources
+
+# Adding SSH Public Key in Project Meta Data
+resource "google_compute_project_metadata_item" "ssh-keys" {
+  key   = "ssh-keys"
+  value = "${var.public_key}"
+}
+
 resource "google_compute_instance" "bastion" {
   name         = "bastion-${var.name}"
   machine_type = "${var.machine_type}"
@@ -22,10 +29,12 @@ resource "google_compute_instance" "bastion" {
   network_interface {
     subnetwork_project = "${var.admin_project}"
     subnetwork         = "${var.subnetwork}"
+
     alias_ip_range {
-      ip_cidr_range="10.40.0.5"
+      ip_cidr_range         = "/32"
       subnetwork_range_name = "acme-services-net-subnet1"
     }
+
     access_config {
       # leaving this empty assigns: ephemeral public ipv4 address
     }
